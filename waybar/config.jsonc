@@ -1,0 +1,60 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 0,
+    "exclusive": true,
+    "passthrough": false,
+
+    "modules-left": ["custom/launcher", "niri/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "custom/power"],
+
+    "custom/launcher": {
+        "format": "󰣇  Arch",
+        "on-click": "rofi -show drun",
+        "tooltip": false
+    },
+
+    "niri/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "on-scroll-up": "niri msg action focus-workspace-up",
+        "on-scroll-down": "niri msg action focus-workspace-down"
+    },
+
+    "clock": {
+        "format": "{:%H:%M  ·  %d %b %Y}",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰖁  mute",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "tooltip": false
+    },
+
+    "cpu": {
+        "format": "󰻠  {usage}%",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "󰍛  {used:0.1f}G",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    "custom/power": {
+        "format": "󰐥",
+        "on-click": "bash -c 'echo -e \"  Kapat\n󰜉  Yeniden Başlat\n󰍃  Çıkış\" | rofi -dmenu -p \"\" -theme-str \"listview { lines: 3; }\" | grep -oP \"\\w+$\" | tr -d \" \" | xargs -I{} sh -c \"if [ {} = Kapat ]; then systemctl poweroff; elif [ {} = YenidenBaşlat ]; then systemctl reboot; else niri msg action quit; fi\"'",
+        "tooltip": false
+    }
+}

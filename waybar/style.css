@@ -1,0 +1,127 @@
+/* ── Reset ──────────────────────────────────────── */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Liberation Sans", monospace;
+    font-size: 12px;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+/* ── Bar ────────────────────────────────────────── */
+window#waybar {
+    background-color: #303841;
+    color: #ffc87f;
+    border-bottom: 1px solid rgba(255, 200, 127, 0.10);
+}
+
+/* ── Launcher ───────────────────────────────────── */
+#custom-launcher {
+    color: #ffc87f;
+    background-color: rgba(255, 200, 127, 0.09);
+    padding: 0 16px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    border-right: 1px solid rgba(255, 200, 127, 0.10);
+    transition: background-color 0.15s, color 0.15s;
+}
+
+#custom-launcher:hover {
+    background-color: rgba(255, 200, 127, 0.17);
+    color: #ffffff;
+}
+
+/* ── Workspaces ─────────────────────────────────── */
+#workspaces {
+    padding: 0 6px;
+}
+
+#workspaces button {
+    color: rgba(255, 200, 127, 0.35);
+    background: transparent;
+    padding: 0 8px;
+    min-width: 22px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    transition: color 0.15s, background-color 0.15s;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 200, 127, 0.07);
+    color: rgba(255, 200, 127, 0.75);
+    border-bottom: 2px solid rgba(255, 200, 127, 0.35);
+}
+
+#workspaces button.active {
+    color: #ffc87f;
+    font-weight: bold;
+    border-bottom: 2px solid #ffc87f;
+}
+
+#workspaces button.urgent {
+    color: #ff6b6b;
+    border-bottom: 2px solid #ff6b6b;
+}
+
+/* ── Clock ──────────────────────────────────────── */
+#clock {
+    color: #ffc87f;
+    padding: 0 18px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+}
+
+/* ── Right: shared ──────────────────────────────── */
+#pulseaudio,
+#cpu,
+#memory {
+    color: rgba(255, 200, 127, 0.80);
+    padding: 0 12px;
+    border-left: 1px solid rgba(255, 200, 127, 0.08);
+    transition: color 0.15s, background-color 0.15s;
+}
+
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover {
+    color: #ffc87f;
+    background-color: rgba(255, 200, 127, 0.06);
+}
+
+#pulseaudio.muted {
+    color: rgba(255, 200, 127, 0.28);
+}
+
+/* ── CPU uyarı ──────────────────────────────────── */
+#cpu.warning  { color: #ffaa44; }
+#cpu.critical {
+    color: #ff6b6b;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { color: rgba(255, 107, 107, 0.35); }
+}
+
+/* ── Memory uyarı ───────────────────────────────── */
+#memory.warning  { color: #ffaa44; }
+#memory.critical { color: #ff6b6b; }
+
+/* ── Power ──────────────────────────────────────── */
+#custom-power {
+    color: rgba(255, 200, 127, 0.45);
+    padding: 0 14px;
+    font-size: 14px;
+    border-left: 1px solid rgba(255, 200, 127, 0.08);
+    transition: color 0.15s, background-color 0.15s;
+}
+
+#custom-power:hover {
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.10);
+}

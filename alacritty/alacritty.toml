@@ -1,0 +1,31 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding = { x = 8, y = 8 }
+dynamic_padding = true
+opacity = 0.92
+title = "Alacritty"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+# Ekran çözünürlüğüne göre boyutu (10.0 - 12.0 arası) ayarlayabilirsin
+size = 12.0 
+
+[font.offset]
+x = 0
+y = 0
+
+[colors.cursor]
+cursor = "#ffc87f"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+save_to_clipboard = true
+
+[terminal.shell]
+program = "/usr/bin/fish"
+args = ["-l"]
