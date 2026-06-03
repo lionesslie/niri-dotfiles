@@ -13,7 +13,7 @@
 
 /* ── Bar ────────────────────────────────────────── */
 window#waybar {
-    background-color: #303841;
+    background-color: #292828;
     color: #ffc87f;
     border-bottom: 1px solid rgba(255, 200, 127, 0.10);
 }

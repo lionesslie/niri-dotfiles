@@ -11,7 +11,7 @@
     "modules-right": ["pulseaudio", "cpu", "memory", "custom/power"],
 
     "custom/launcher": {
-        "format": "󰣇  Arch",
+        "format": "󰣇",
         "on-click": "rofi -show drun",
         "tooltip": false
     },

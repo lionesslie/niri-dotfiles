@@ -80,6 +80,7 @@ spawn-at-startup "udiskie" "-t"
 spawn-at-startup "udisksctl" "mount" "-b" "/dev/sda1"
 spawn-at-startup "udisksctl" "mount" "-b" "/dev/sdc1"
 spawn-at-startup "steam"
+spawn-at-startup "xwayland-satellite"
 
 environment {
     GTK_THEME "Materia-dark"
