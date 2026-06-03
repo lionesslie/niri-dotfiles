@@ -29,5 +29,3 @@
 | 🖼️ **flameshot** | Ekran görüntüsü |
 
 ---
-
-## 📁 Dizin Yapısı
