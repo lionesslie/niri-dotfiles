@@ -83,7 +83,6 @@ PACMAN_PACKAGES=(
   libnotify
   xclip
   flameshot
-  firefox
   neovim
   ttf-liberation
   base-devel
@@ -96,6 +95,7 @@ AUR_PACKAGES=(
   niri
   nvibrant
   aylurs-gtk-shell
+  zen-browser-bin
 )
 
 install_packages() {
