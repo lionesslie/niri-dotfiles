@@ -52,7 +52,7 @@ layout {
     border {
         on
         width 4
-        active-color "#ffc87f"
+        active-color "F28FAD"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -73,10 +73,10 @@ layout {
     }
 }
 
-# AutoStart
-spawn-at-startup "ags"
+// AutoStart
+spawn-at-startup "ags" "run"
 spawn-at-startup "nvibrant" "0" "0" "0" "0" "1024"
-spawn-at-startup "swaybg" "-i" "/home/honey/Resimler/Wallpaper/1.png" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/home/honey/Resimler/Wallpaper/wallpaper.jpg" "-m" "fill"
 spawn-at-startup "udiskie" "-t"
 spawn-at-startup "udisksctl" "mount" "-b" "/dev/sda1"
 spawn-at-startup "udisksctl" "mount" "-b" "/dev/sdc1"
