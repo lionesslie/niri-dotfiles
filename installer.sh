@@ -145,13 +145,20 @@ copy_dotfiles() {
   info "Dotfiles ~/.config dizinine kopyalanıyor..."
   mkdir -p "$CONFIG_DIR"
 
-  # Repodaki her klasörü / dosyayı ~/.config altına kopyala
-  # (Repo kökünde .git ve README gibi meta dosyalar hariç)
-  shopt -s dotglob
-  for item in "$REPO_DIR"/*/; do
+  # Repo yapısını tespit et: dosyalar $REPO_DIR/.config/ altında mı,
+  # yoksa doğrudan repo kökünde mi?
+  local source_dir="$REPO_DIR"
+  if [[ -d "$REPO_DIR/.config" ]]; then
+    source_dir="$REPO_DIR/.config"
+    info "Kaynak dizin: $source_dir (.config yapısı tespit edildi)"
+  fi
+
+  shopt -s dotglob nullglob
+
+  # Repodaki her klasörü ~/.config altına kopyala
+  for item in "$source_dir"/*/; do
     local name
     name=$(basename "$item")
-    # Meta klasörleri atla
     [[ "$name" == ".git" ]] && continue
     backup_existing "$name"
     cp -r "$item" "$CONFIG_DIR/$name"
@@ -159,20 +166,21 @@ copy_dotfiles() {
   done
 
   # Kök dizindeki loose dosyaları da kopyala (varsa)
-  for item in "$REPO_DIR"/*; do
+  for item in "$source_dir"/*; do
     local name
     name=$(basename "$item")
     [[ -d "$item" ]] && continue               # Klasörler yukarıda işlendi
-    [[ "$name" == "README"* ]] && continue     # README atla
-    [[ "$name" == "*.md" ]] && continue
+    [[ "$name" == README* ]] && continue       # README atla
+    [[ "$name" == *.md ]] && continue          # .md dosyaları atla
     [[ "$name" == "install.sh" ]] && continue  # Kendini atla
-    [[ "$name" == ".git"* ]] && continue
+    [[ "$name" == .git* ]] && continue
+    [[ "$name" == LICENSE* ]] && continue
     backup_existing "$name"
     cp "$item" "$CONFIG_DIR/$name"
     success "  ✔ $name → ~/.config/$name"
   done
 
-  shopt -u dotglob
+  shopt -u dotglob nullglob
 }
 
 # ── Fish'i varsayılan shell yap (opsiyonel) ──────────────────
