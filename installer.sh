@@ -95,6 +95,7 @@ PACMAN_PACKAGES=(
 # ── AUR paketleri (niri resmi repoda olmayabilir) ────────────
 AUR_PACKAGES=(
   niri
+  nvibrant
 )
 
 install_packages() {
