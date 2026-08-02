@@ -77,6 +77,8 @@ layout {
 spawn-at-startup "nvibrant" "0" "0" "0" "0" "1024"
 spawn-at-startup "swaybg" "-i" "/home/honey/Resimler/Wallpaper/1.png" "-m" "fill"
 spawn-at-startup "udiskie" "-t"
+spawn-at-startup "udisksctl" "mount" "-b" "/dev/sda1"
+spawn-at-startup "udisksctl" "mount" "-b" "/dev/sdc1"
 spawn-at-startup "steam"
 spawn-at-startup "xwayland-satellite"
 
