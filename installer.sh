@@ -87,7 +87,6 @@ PACMAN_PACKAGES=(
   neovim
   ttf-liberation
   base-devel
-  waybar
   steam
   gamemode
 )
@@ -96,6 +95,7 @@ PACMAN_PACKAGES=(
 AUR_PACKAGES=(
   niri
   nvibrant
+  aylurs-gtk-shell
 )
 
 install_packages() {
