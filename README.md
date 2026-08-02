@@ -36,7 +36,7 @@ Minimal, hızlı ve göze hitap eden bir **scrollable tiling** masaüstü deneyi
 
 | Araç | Açıklama |
 |------|----------|
-| 🪟 **niri** | Scrollable tiling Wayland compositor |
+| 🌸 **niri** | Scrollable tiling Wayland compositor |
 | 📊 **waybar** | Durum çubuğu |
 | 💻 **alacritty** | GPU hızlandırmalı terminal emülatörü |
 | 🐟 **fish** | Kullanıcı dostu shell |
