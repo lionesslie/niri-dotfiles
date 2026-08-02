@@ -73,7 +73,8 @@ layout {
     }
 }
 
-// Üst bar (waybar) kaldırıldı — gerçek WM görünümü için
+# AutoStart
+spawn-at-startup "ags"
 spawn-at-startup "nvibrant" "0" "0" "0" "0" "1024"
 spawn-at-startup "swaybg" "-i" "/home/honey/Resimler/Wallpaper/1.png" "-m" "fill"
 spawn-at-startup "udiskie" "-t"
