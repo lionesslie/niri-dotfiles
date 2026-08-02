@@ -5,7 +5,7 @@ input {
     keyboard {
         xkb {
             // Boş bırakılırsa localectl ayarları kullanılır.
-            layout "tr, ru"
+            layout "tr,ru"
             options "grp:win_shift_toggle"
         }
 
@@ -43,7 +43,7 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-	off
+        off
         width 4
         active-color "#7fc8ff"
         inactive-color "#505050"
@@ -73,12 +73,10 @@ layout {
     }
 }
 
-spawn-at-startup "waybar"
+// Üst bar (waybar) kaldırıldı — gerçek WM görünümü için
 spawn-at-startup "nvibrant" "0" "0" "0" "0" "1024"
 spawn-at-startup "swaybg" "-i" "/home/honey/Resimler/Wallpaper/1.png" "-m" "fill"
 spawn-at-startup "udiskie" "-t"
-spawn-at-startup "udisksctl" "mount" "-b" "/dev/sda1"
-spawn-at-startup "udisksctl" "mount" "-b" "/dev/sdc1"
 spawn-at-startup "steam"
 spawn-at-startup "xwayland-satellite"
 
@@ -114,7 +112,7 @@ window-rule {
     open-floating true
 }
 
-/-window-rule {
+window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
@@ -264,7 +262,7 @@ binds {
     Mod+M       { maximize-window-to-edges; }
     Mod+Ctrl+F  { expand-column-to-available-width; }
 
-    // Ortalama (eski Mod+C center buraya taşındı)
+    // Ortalama
     Mod+Z      { center-column; }
     Mod+Ctrl+Z { center-visible-columns; }
 
