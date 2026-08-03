@@ -69,6 +69,7 @@ install_prerequisites() {
 
 # ── Pacman paketleri ─────────────────────────────────────────
 PACMAN_PACKAGES=(
+  niri
   alacritty
   rofi
   thunar
@@ -92,7 +93,6 @@ PACMAN_PACKAGES=(
 
 # ── AUR paketleri (niri resmi repoda olmayabilir) ────────────
 AUR_PACKAGES=(
-  niri
   nvibrant
   aylurs-gtk-shell
   zen-browser-bin
