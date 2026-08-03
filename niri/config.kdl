@@ -4,9 +4,8 @@
 input {
     keyboard {
         xkb {
-            // Boş bırakılırsa localectl ayarları kullanılır.
             layout "tr,ru"
-            options "grp:win_shift_toggle"
+            variant ",phonetic"
         }
 
         numlock
@@ -106,8 +105,8 @@ animations {
 }
 
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+//    match app-id=r#"steam_app_2073850"#
+//    open-fullscreen true
 }
 
 window-rule {
@@ -122,6 +121,9 @@ window-rule {
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
+    
+    // Dil Değiştirme
+    Mod+Space { switch-layout "next"; }
 
     // Terminal ve uygulama başlatıcı
     Mod+Return hotkey-overlay-title="Terminal: Alacritty" { spawn "alacritty"; }
