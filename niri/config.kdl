@@ -105,8 +105,7 @@ animations {
 }
 
 window-rule {
-//    match app-id=r#"steam_app_2073850"#
-//    open-fullscreen true
+    open-fullscreen true
 }
 
 window-rule {
