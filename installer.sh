@@ -95,7 +95,6 @@ PACMAN_PACKAGES=(
 AUR_PACKAGES=(
   nvibrant
   aylurs-gtk-shell
-  zen-browser-bin
 )
 
 install_packages() {
