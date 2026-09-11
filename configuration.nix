@@ -155,6 +155,14 @@
     swaybg
     swaylock
     polkit_gnome
+
+    # AGS (Aylur's Gtk Shell) — waybar yerine bar/shell olarak bunu kullanıyorsun.
+    # ags CLI, ~/.config/ags altındaki config'i çalıştırır. Repodaki ags
+    # config'in v1 (GJS+GTK3) mi yoksa v2/Astal tabanlı mı olduğuna göre
+    # ek runtime bağımlılık gerekebilir (örn. bun, dart-sass, gtk-layer-shell,
+    # libgtop, gvfs) — repo README'sinde belirtiliyorsa buraya ekle.
+    ags
+
     fastfetch
     git
     protonup-qt
