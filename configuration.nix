@@ -147,12 +147,10 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    # --- Niri masaüstü (istediğin Arch paket listesinin Nix karşılıkları) ---
     alacritty
     rofi
     thunar
     udiskie
-    # udisks2 zaten services.udisks2 ile geliyor, paket olarak da ekliyoruz
     udisks2
     playerctl
     brightnessctl
@@ -162,37 +160,14 @@
     neovim
     papirus-icon-theme
     materia-theme
-
-    # Wayland yardımcıları (bspwm'in X11 araçlarının niri karşılıkları)
-    mako            # dunst'ın yerine (Wayland notification daemon)
-    waybar          # polybar'ın yerine (repodaki waybar klasörü için)
-    swaybg          # feh'in yerine (wallpaper)
-    swaylock        # ekran kilidi
-    swayidle        # otomatik kilit/uyku
-    polkit_gnome    # GUI polkit ajanı (parola sorma pencereleri için)
-
-    # "base-devel" karşılığı (derleme araçları)
-    gcc
-    gnumake
-    binutils
-    pkg-config
-    gettext
-
+    mako
+    swaybg
+    swaylock
+    polkit_gnome
     fastfetch
     git
-    vscode
-
-    brave
-    spotify
-    mangohud
-    heroic
     protonup-qt
-    eden
-    prismlauncher
-
     wget
-    wine-staging
-    flightgear
     unzip
     nftables
   ];
