@@ -26,15 +26,8 @@
     LC_TIME           = "tr_TR.UTF-8";
   };
 
-  # ── Klavye (TTY) ─────────────────────────────────────────────────────────
-  # Not: Wayland/niri oturumunda klavye düzeni artık Xorg üzerinden değil,
-  # ~/.config/niri/config.kdl içindeki `input { keyboard { xkb { layout "tr"; } } }`
-  # bloğundan ayarlanır. Burada sadece sanal konsol (TTY) için bırakıyoruz.
   console.keyMap = "trq";
 
-  # ── NVIDIA sürücüsü ──────────────────────────────────────────────────────
-  # Xorg tamamen kapalı olsa da, çekirdek modülünün doğru yüklenmesi için
-  # videoDrivers alanını "nvidia" olarak bırakıyoruz.
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.graphics = {
@@ -43,7 +36,7 @@
   };
 
   hardware.nvidia = {
-    modesetting.enable = true;   # Wayland/niri için ZORUNLU
+    modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
     open = false;
@@ -51,8 +44,6 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # ── Wayland / Niri Oturumu ───────────────────────────────────────────────
-  # niri paketini ve oturum dosyasını (niri-session) sisteme ekler.
   programs.niri.enable = true;
 
   # greetd + tuigreet: hafif, Wayland-native login manager.
