@@ -147,7 +147,7 @@
     brightnessctl
     libnotify
     flameshot
-    neovim
+    helix
     papirus-icon-theme
     materia-theme
     mako
