@@ -2,16 +2,13 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  # ── Bootloader ────────────────────────────────────────────────────────────
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # ── Ağ ───────────────────────────────────────────────────────────────────
   networking.hostName = "montana";
   networking.networkmanager.enable = true;
 
-  # ── Saat / Dil ───────────────────────────────────────────────────────────
   time.timeZone = "Europe/Istanbul";
   i18n.defaultLocale = "tr_TR.UTF-8";
   i18n.extraLocaleSettings = {
@@ -46,9 +43,6 @@
 
   programs.niri.enable = true;
 
-  # greetd + tuigreet: hafif, Wayland-native login manager.
-  # lightdm'nin yerini bu alıyor çünkü lightdm Wayland oturumlarını
-  # düzgün başlatmıyor.
   services.greetd = {
     enable = true;
     settings = {
@@ -59,20 +53,15 @@
     };
   };
 
-  # ── Ortam Değişkenleri ───────────────────────────────────────────────────
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME          = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME  = "nvidia";
-    GBM_BACKEND                = "nvidia-drm";
-    # Ryujinx / Ryubing için Vulkan ICD
-    VK_ICD_FILENAMES           = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
-    # Chromium tabanlı uygulamalar (Brave, VSCode) Wayland'da native çalışsın
-    NIXOS_OZONE_WL             = "1";
-    # Qt uygulamaları Wayland kullansın
-    QT_QPA_PLATFORM            = "wayland";
+    LIBVA_DRIVER_NAME         = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    GBM_BACKEND               = "nvidia-drm";
+    VK_ICD_FILENAMES          = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
+    NIXOS_OZONE_WL            = "1";
+    QT_QPA_PLATFORM           = "wayland";
   };
 
-  # ── Ses (PipeWire) ───────────────────────────────────────────────────────
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -82,7 +71,6 @@
     pulse.enable = true;
   };
 
-  # ── Steam / Oyun ─────────────────────────────────────────────────────────
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -91,12 +79,8 @@
   };
   programs.gamemode.enable = true;
 
-  # ── Flatpak (Ryubing için) ────────────────────────────────────────────────
   services.flatpak.enable = true;
 
-  # ── XDG Portal (ekran paylaşımı, dosya seçici, Flatpak GUI vs.) ──────────
-  # niri için gtk + gnome portal'ları birlikte: gnome portalı ekran
-  # görüntüsü/paylaşım (screencast) desteğini sağlıyor.
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
@@ -106,7 +90,6 @@
     config.common.default = [ "gnome" "gtk" ];
   };
 
-  # ── Disk Yönetimi / Polkit ───────────────────────────────────────────────
   services.udisks2.enable = true;
 
   security.polkit = {
@@ -122,10 +105,8 @@
     '';
   };
 
-  # ── Shell ────────────────────────────────────────────────────────────────
   programs.fish.enable = true;
 
-  # ── Kullanıcı ────────────────────────────────────────────────────────────
   users.users."honey" = {
     isNormalUser = true;
     description  = "honey";
@@ -134,7 +115,6 @@
     packages     = with pkgs; [];
   };
 
-  # ── Paketler ─────────────────────────────────────────────────────────────
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -153,22 +133,21 @@
     mako
     swaybg
     polkit_gnome
-    ags
+    waybar
+    xwayland-satellite
     fastfetch
     git
     protonup-qt
     wget
     unzip
     nftables
-    xwayland-satellite
   ];
 
-  # ── Fontlar ──────────────────────────────────────────────────────────────
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono   # ttf-jetbrains-mono-nerd karşılığı
+    nerd-fonts.jetbrains-mono
     nerd-fonts.symbols-only
     material-design-icons
-    liberation_ttf              # ttf-liberation karşılığı
+    liberation_ttf
     unifont
   ];
 
