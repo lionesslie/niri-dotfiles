@@ -160,6 +160,7 @@
     wget
     unzip
     nftables
+    xwayland-satellite
   ];
 
   # ── Fontlar ──────────────────────────────────────────────────────────────
