@@ -37,7 +37,7 @@ A minimal, fast, and visually appealing **scrollable tiling** desktop experience
 | Tool | Description |
 |------|-------------|
 | 🌸 **niri** | Scrollable tiling Wayland compositor |
-| 📊 **asg** | Status bar |
+| 📊 **waybar** | Status bar |
 | 💻 **alacritty** | GPU-accelerated terminal emulator |
 | 🐟 **fish** | User-friendly shell |
 | 🚀 **rofi** | Application launcher |
