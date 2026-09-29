@@ -3,10 +3,11 @@
 # copy-nix.sh
 #
 # NixOS kullanıcıları için: installer.sh (Arch/AUR paket kurulumu yapan
-# betik) bu sistemde işe yaramadığından, bu betik SADECE bu repodaki
-# config klasörlerini ~/.config altına kopyalar. Paket kurulumu
-# configuration.nix (environment.systemPackages) üzerinden `nixos-rebuild
-# switch` ile yapılır.
+# betik) bu sistemde işe yaramadığından, bu betik:
+#   1) repodaki config klasörlerini ~/.config altına kopyalar
+#   2) configuration.nix dosyasını /etc/nixos altına kopyalar
+# Mevcut dosyalar/klasörler yedeklenir. Paket kurulumu
+# `nixos-rebuild switch` ile yapılır.
 #
 # Kullanım:
 #   chmod +x copy-nix.sh
@@ -23,13 +24,12 @@ EXCLUDE=(
   "README.md"
   "installer.sh"
   "copy-nix.sh"
-  "hardware-configuration.nix"
+  "configuration.nix"
   "assets"
   "LICENSE"
   ".git"
   ".github"
   ".gitignore"
-  "ags"
 )
 
 is_excluded() {
@@ -42,6 +42,7 @@ is_excluded() {
   return 1
 }
 
+# ---------- 1) config klasörleri -> ~/.config ----------
 mkdir -p "$TARGET_DIR"
 
 echo "==> Kaynak dizin : $REPO_DIR"
@@ -86,5 +87,34 @@ if [ "$copied" -eq 0 ]; then
   exit 1
 fi
 
-echo "✅ Tamamlandı: $copied klasör ~/.config içine kopyalandı."
-echo "   Bir şey bozulursa *.bak-${TIMESTAMP} yedeklerinden geri dönebilirsin."
+echo "✅ $copied klasör ~/.config içine kopyalandı."
+echo
+
+# ---------- 2) configuration.nix -> /etc/nixos ----------
+NIX_SRC="$REPO_DIR/configuration.nix"
+NIX_DEST="/etc/nixos/configuration.nix"
+
+if [ -f "$NIX_SRC" ]; then
+  SUDO=""
+  if [ "$(id -u)" -ne 0 ]; then
+    SUDO="sudo"
+  fi
+
+  if [ -e "$NIX_DEST" ]; then
+    NIX_BACKUP="${NIX_DEST}.bak-${TIMESTAMP}"
+    echo "  ! Mevcut configuration.nix yedekleniyor:"
+    echo "      $NIX_DEST"
+    echo "      -> $NIX_BACKUP"
+    $SUDO cp -a "$NIX_DEST" "$NIX_BACKUP"
+  fi
+
+  echo "  -> Kopyalanıyor: configuration.nix  /etc/nixos/"
+  $SUDO cp "$NIX_SRC" "$NIX_DEST"
+  echo "✅ configuration.nix kopyalandı."
+  echo "   Uygulamak için: sudo nixos-rebuild switch"
+else
+  echo "  ! Repoda configuration.nix bulunamadı, /etc/nixos atlandı."
+fi
+
+echo
+echo "Bir şey bozulursa *.bak-${TIMESTAMP} yedeklerinden geri dönebilirsin."
