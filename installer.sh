@@ -13,20 +13,15 @@ error()   { echo -e "\033[1;31m[ERROR]\033[0m $*"; exit 1; }
 # ── Paketler ─────────────────────────────────────────────────
 
 PACMAN_PACKAGES=(
-  # Masaüstü
   niri
-  xwayland-satellite            # X11 uygulamaları (Steam vb.) için
-  xdg-desktop-portal-gnome      # ekran paylaşımı / dosya seçici
-  polkit-gnome                  # yetki penceresi
+  xwayland-satellite
+  xdg-desktop-portal-gnome
+  polkit-gnome
   swaylock
-
-  # Ses / parlaklık / medya
   pipewire
-  wireplumber                   # wpctl
+  wireplumber
   playerctl
   brightnessctl
-
-  # Uygulamalar
   alacritty
   fish
   neovim
@@ -37,18 +32,13 @@ PACMAN_PACKAGES=(
   udisks2
   networkmanager
   libnotify
-
-  # Görünüm
   ttf-jetbrains-mono-nerd
   papirus-icon-theme
-
-  # Oyun
   steam
   gamemode
 )
 
 AUR_PACKAGES=(
-  aylurs-gtk-shell              # ags
   nvibrant
 )
 
