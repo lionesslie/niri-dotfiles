@@ -43,7 +43,7 @@ AUR_PACKAGES=(
 )
 
 # Repodan ~/.config'e kopyalanmayacak klasörler
-SKIP_DIRS=(assets waybar .git .github)
+SKIP_DIRS=(assets .git .github)
 
 # ── Kontroller ───────────────────────────────────────────────
 
