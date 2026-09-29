@@ -1,18 +1,4 @@
 #!/usr/bin/env bash
-#
-# copy-nix.sh
-#
-# NixOS kullanıcıları için: installer.sh (Arch/AUR paket kurulumu yapan
-# betik) bu sistemde işe yaramadığından, bu betik:
-#   1) repodaki config klasörlerini ~/.config altına kopyalar
-#   2) configuration.nix dosyasını /etc/nixos altına kopyalar
-# Mevcut dosyalar/klasörler yedeklenir. Paket kurulumu
-# `nixos-rebuild switch` ile yapılır.
-#
-# Kullanım:
-#   chmod +x copy-nix.sh
-#   ./copy-nix.sh
-#
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
