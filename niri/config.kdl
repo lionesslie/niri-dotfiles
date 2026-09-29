@@ -51,7 +51,7 @@ layout {
     border {
         on
         width 4
-        active-color "F28FAD"
+        active-color "#F28FAD"
         inactive-color "#505050"
         urgent-color "#9b0000"
     }
@@ -72,6 +72,12 @@ layout {
     }
 }
 
+// Fare imleci (workspace/pencere değişince imlecin değişmesini önler)
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24
+}
+
 // AutoStart
 spawn-at-startup "waybar"
 spawn-at-startup "nvibrant" "0" "0" "0" "0" "1024"
@@ -80,12 +86,15 @@ spawn-at-startup "udiskie" "-t"
 spawn-at-startup "udisksctl" "mount" "-b" "/dev/sda1"
 spawn-at-startup "udisksctl" "mount" "-b" "/dev/sdc1"
 spawn-at-startup "steam"
-spawn-at-startup "xwayland-satellite"
+// xwayland-satellite'i niri kendisi otomatik başlatıyor, elle başlatmak çakışma yapar
+// spawn-at-startup "xwayland-satellite"
 
 environment {
     GTK_THEME "Materia-dark"
     QT_QPA_PLATFORMTHEME "gtk3"
     QT_STYLE_OVERRIDE "kvantum"
+    XCURSOR_THEME "Adwaita"
+    XCURSOR_SIZE "24"
 }
 
 hotkey-overlay {
