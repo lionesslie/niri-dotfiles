@@ -30,6 +30,7 @@ EXCLUDE=(
   ".git"
   ".github"
   ".gitignore"
+  "ags"
 )
 
 is_excluded() {
