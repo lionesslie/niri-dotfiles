@@ -165,6 +165,11 @@
     liberation_ttf
     unifont
   ];
+  
+  cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24
+  }
 
   # Zapret DPI Bypass Servisi - Düzeltildi
   systemd.services.zapret = {
