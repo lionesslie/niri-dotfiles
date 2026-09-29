@@ -1,14 +1,18 @@
 { config, pkgs, ... }:
+
 {
   imports = [ ./hardware-configuration.nix ];
 
+  # Önyükleyici (Bootloader) Ayarları
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
+  # Ağ ve Sistem Tanımları
   networking.hostName = "montana";
   networking.networkmanager.enable = true;
 
+  # Zaman ve Dil Ayarları
   time.timeZone = "Europe/Istanbul";
   i18n.defaultLocale = "tr_TR.UTF-8";
   i18n.extraLocaleSettings = {
@@ -25,6 +29,7 @@
 
   console.keyMap = "trq";
 
+  # Grafik Kartı (NVIDIA) Ayarları
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.graphics = {
@@ -41,18 +46,21 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  # Pencere Yöneticisi (Niri)
   programs.niri.enable = true;
 
+  # Giriş Yöneticisi (Greetd & Tuigreet) - Düzeltildi
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-user-session --cmd niri-session";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session --cmd niri-session";
         user = "greeter";
       };
     };
   };
 
+  # Ortam Değişkenleri (Wayland / NVIDIA)
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME         = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
@@ -62,7 +70,8 @@
     QT_QPA_PLATFORM           = "wayland";
   };
 
-  hardware.pulseaudio.enable = false;
+  # Ses Ayarları (Pipewire) - Düzeltildi
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -71,6 +80,7 @@
     pulse.enable = true;
   };
 
+  # Oyun ve Uygulama Desteği
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -105,6 +115,7 @@
     '';
   };
 
+  # Kabuk (Fish) ve Kullanıcı Tanımı
   programs.fish.enable = true;
 
   users.users."honey" = {
@@ -117,6 +128,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # Sistem Paketleri
   environment.systemPackages = with pkgs; [
     alacritty
     rofi
@@ -141,8 +153,11 @@
     wget
     unzip
     nftables
+    zapret
+    nvibrant
   ];
 
+  # Yazı Tipleri
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.symbols-only
@@ -151,12 +166,13 @@
     unifont
   ];
 
+  # Zapret DPI Bypass Servisi - Düzeltildi
   systemd.services.zapret = {
     description = "DPI bypass service";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "/nix/store/nds7al2dh9z4110hipw92ya7wpbrx2ac-zapret-72.12/bin/nfqws --pidfile=/run/nfqws.pid --wsize=1500 --dpi-desync=disorder --dpi-desync-ttl=0 --qnum=200";
+      ExecStart = "${pkgs.zapret}/bin/nfqws --pidfile=/run/nfqws.pid --wsize=1500 --dpi-desync=disorder --dpi-desync-ttl=0 --qnum=200";
       PIDFile = "/run/nfqws.pid";
       Restart = "always";
       Type = "simple";
