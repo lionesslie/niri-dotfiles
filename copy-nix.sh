@@ -23,7 +23,6 @@ EXCLUDE=(
   "README.md"
   "installer.sh"
   "copy-nix.sh"
-  "configuration.nix"
   "hardware-configuration.nix"
   "assets"
   "LICENSE"
