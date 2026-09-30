@@ -40,6 +40,7 @@ PACMAN_PACKAGES=(
 
 AUR_PACKAGES=(
   nvibrant
+  zen-browser-bin
 )
 
 # Repodan ~/.config'e kopyalanmayacak klasörler
