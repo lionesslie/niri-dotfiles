@@ -81,7 +81,7 @@ cursor {
 // AutoStart
 spawn-at-startup "waybar"
 spawn-at-startup "nvibrant" "0" "0" "0" "0" "1024"
-spawn-at-startup "swaybg" "-i" "/home/honey/Resimler/Wallpaper/1.jpeg" "-m" "fill"
+spawn-at-startup "sh" "-c" "swaybg -i $(find /home/honey/Resimler/Wallpaper -type f | shuf -n 1) -m fill"
 spawn-at-startup "udiskie" "-t"
 spawn-at-startup "udisksctl" "mount" "-b" "/dev/sda1"
 spawn-at-startup "udisksctl" "mount" "-b" "/dev/sdc1"
