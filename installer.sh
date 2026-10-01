@@ -27,7 +27,6 @@ PACMAN_PACKAGES=(
   neovim
   rofi
   thunar
-  flameshot
   udiskie
   udisks2
   networkmanager
