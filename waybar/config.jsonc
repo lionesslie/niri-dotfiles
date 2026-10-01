@@ -6,7 +6,7 @@
   "spacing": 6,
   "modules-left": ["custom/launcher", "niri/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "tray", "custom/power"],
+  "modules-right": ["niri/language", "group/audio", "network", "tray", "custom/power"],
 
   "custom/launcher": {
     "format": "\uf303",
@@ -17,26 +17,49 @@
     "format": "{icon}",
     "format-icons": { "focused": "●", "active": "●", "default": "○" }
   },
+  "niri/language": {
+    "format": "󰌌  {short}",
+    "tooltip-format": "{long}",
+    "on-click": "niri msg action switch-layout next"
+  },
   "clock": {
     "timezone": "Europe/Istanbul",
     "format": "{:%H:%M  ·  %d %b %a}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode": "month",
+      "on-scroll": 1,
       "format": {
         "today": "<b><u>{}</u></b>",
         "weekdays": "<span color='#8c8c8c'>{}</span>"
       }
+    },
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
     }
+  },
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "transition-left-to-right": false
+    },
+    "modules": ["pulseaudio", "pulseaudio/slider"]
   },
   "pulseaudio": {
     "format": "{icon}",
     "format-muted": "󰝟",
     "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
     "tooltip-format": "{volume}%",
-    "scroll-step": 5,
+    "scroll-step": 1,
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
   },
   "network": {
     "format-wifi": "󰤨",

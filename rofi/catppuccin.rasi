@@ -9,5 +9,4 @@
     fg-col2:       #000000;     /* seçili satırda siyah yazı */
     grey:          #8c8c8c;
     input-col:     #ffffff14;   /* arama kutusu zemini */
-    width: 600;
 }

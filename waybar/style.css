@@ -9,9 +9,9 @@
 }
 window#waybar { background: transparent; }
 
-/* ortak cam görünüm: yarı saydam siyah, blur için uygun */
+/* ortak cam görünüm */
 #custom-launcher, #custom-power,
-#workspaces, #clock, #pulseaudio, #network, #tray {
+#workspaces, #clock, #language, #audio, #network, #tray {
   background: rgba(0, 0, 0, 0.62);
   color: #f2f2f2;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -20,24 +20,31 @@ window#waybar { background: transparent; }
 }
 
 /* yuvarlak butonlar */
-#custom-launcher, #custom-power, #pulseaudio, #network {
+#custom-launcher, #custom-power, #network {
   min-width: 28px;
   min-height: 26px;
 }
 
+/* arch logosunu tam ortala (gerekirse padding değerlerini 1px oynat) */
+#custom-launcher {
+  font-size: 15px;
+  padding: 0 1px 1px 0;
+}
+
 #clock { padding: 0 16px; }
 #tray  { padding: 0 10px; }
-#workspaces { padding: 0 4px; }
+#language { padding: 0 12px; }
 
-/* workspace: aktif olan beyaz hap */
+/* workspace: aktif olan beyaz hap, geçişte genişleyerek kayar */
+#workspaces { padding: 0 4px; }
 #workspaces button {
   color: rgba(255, 255, 255, 0.55);
   background: transparent;
-  padding: 0 8px;
+  padding: 0 7px;
   margin: 2px 1px;
   min-width: 0;
   border-radius: 11px;
-  transition: background 150ms ease, color 150ms ease;
+  transition: all 280ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 #workspaces button:hover {
   color: #ffffff;
@@ -48,15 +55,49 @@ window#waybar { background: transparent; }
 #workspaces button.active {
   color: #000000;
   background: rgba(255, 255, 255, 0.92);
+  padding: 0 16px;
 }
 
-#custom-launcher:hover, #custom-power:hover,
-#pulseaudio:hover, #network:hover {
+/* ses: ikon + hover'da açılan slider */
+#audio { padding: 0 4px; }
+#pulseaudio {
+  min-width: 24px;
+  min-height: 24px;
+  border-radius: 12px;
+  background: transparent;
+  transition: background 150ms ease, color 150ms ease;
+}
+#pulseaudio:hover {
+  background: rgba(255, 255, 255, 0.92);
+  color: #000000;
+}
+#pulseaudio-slider {
+  margin: 0 8px 0 6px;
+}
+#pulseaudio-slider slider {
+  min-height: 12px;
+  min-width: 12px;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: none;
+}
+#pulseaudio-slider trough {
+  min-height: 4px;
+  min-width: 90px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+#pulseaudio-slider highlight {
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+#custom-launcher:hover, #custom-power:hover, #network:hover {
   background: rgba(255, 255, 255, 0.92);
   color: #000000;
 }
 
-/* tooltip aynı dilde */
+/* tooltip / takvim */
 tooltip {
   background: rgba(0, 0, 0, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.14);
