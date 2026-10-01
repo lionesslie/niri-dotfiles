@@ -1,0 +1,68 @@
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+window#waybar { background: transparent; }
+
+/* ortak cam görünüm: yarı saydam siyah, blur için uygun */
+#custom-launcher, #custom-power,
+#workspaces, #clock, #pulseaudio, #network, #tray {
+  background: rgba(0, 0, 0, 0.62);
+  color: #f2f2f2;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+/* yuvarlak butonlar */
+#custom-launcher, #custom-power, #pulseaudio, #network {
+  min-width: 28px;
+  min-height: 26px;
+}
+
+#clock { padding: 0 16px; }
+#tray  { padding: 0 10px; }
+#workspaces { padding: 0 4px; }
+
+/* workspace: aktif olan beyaz hap */
+#workspaces button {
+  color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+  padding: 0 8px;
+  margin: 2px 1px;
+  min-width: 0;
+  border-radius: 11px;
+  transition: background 150ms ease, color 150ms ease;
+}
+#workspaces button:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+}
+#workspaces button.focused,
+#workspaces button.active {
+  color: #000000;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+#custom-launcher:hover, #custom-power:hover,
+#pulseaudio:hover, #network:hover {
+  background: rgba(255, 255, 255, 0.92);
+  color: #000000;
+}
+
+/* tooltip aynı dilde */
+tooltip {
+  background: rgba(0, 0, 0, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+}
+tooltip label {
+  color: #f2f2f2;
+  padding: 4px 8px;
+}

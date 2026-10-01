@@ -1,0 +1,54 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "margin": "6 8 0 8",
+  "spacing": 6,
+  "modules-left": ["custom/launcher", "niri/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "tray", "custom/power"],
+
+  "custom/launcher": {
+    "format": "\uf303",
+    "tooltip": false,
+    "on-click": "pkill rofi || rofi -show drun"
+  },
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": { "focused": "●", "active": "●", "default": "○" }
+  },
+  "clock": {
+    "timezone": "Europe/Istanbul",
+    "format": "{:%H:%M  ·  %d %b %a}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "today": "<b><u>{}</u></b>",
+        "weekdays": "<span color='#8c8c8c'>{}</span>"
+      }
+    }
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "󰝟",
+    "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+    "tooltip-format": "{volume}%",
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  },
+  "network": {
+    "format-wifi": "󰤨",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "tooltip-format": "{essid} {ipaddr}",
+    "on-click": "nm-connection-editor"
+  },
+  "tray": { "icon-size": 14, "spacing": 8 },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "~/.config/rofi/power.sh"
+  }
+}

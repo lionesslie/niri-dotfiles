@@ -81,10 +81,10 @@ cursor {
 // AutoStart
 spawn-at-startup "waybar"
 spawn-at-startup "nvibrant" "0" "0" "0" "0" "1024"
-spawn-at-startup "sh" "-c" "swaybg -i $(find /home/honey/Resimler/Wallpaper -type f | shuf -n 1) -m fill"
+spawn-at-startup "swaybg" "-i" "/home/honey/Resimler/Wallpaper/1.jpg" "-m" "fill" 
 spawn-at-startup "udiskie" "-t"
 spawn-at-startup "udisksctl" "mount" "-b" "/dev/sda1"
-spawn-at-startup "udisksctl" "mount" "-b" "/dev/sdc1"
+spawn-at-startup "udisksctl" "mount" "-b" "/dev/sdb1"
 spawn-at-startup "steam"
 // xwayland-satellite'i niri kendisi otomatik başlatıyor, elle başlatmak çakışma yapar
 // spawn-at-startup "xwayland-satellite"
@@ -273,8 +273,8 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Floating / tiling
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+S       { toggle-window-floating; }
+    Mod+Shift+S { switch-focus-between-floating-and-tiling; }
 
     // Tabbed mod
     Mod+W { toggle-column-tabbed-display; }

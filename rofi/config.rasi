@@ -3,15 +3,15 @@ configuration{
     lines: 5;
     font: "JetBrainsMono Nerd Font 14";
     show-icons: true;
-    icon-theme: "Papirus-dark";
+    icon-theme: "Papirus-Dark";
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: "   Apps ";
-    display-run: "   Run ";
-    display-window: "   window";
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: "   window";
     display-Network: " 󰤨  Network";
     sidebar-mode: true;
 }
@@ -24,29 +24,33 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 360px;
-    border: 3px;
+    height: 380px;
+    border: 1px;
     border-color: @border-col;
+    border-radius: 20px;
     background-color: @bg-col;
 }
 
 mainbox {
-    background-color: @bg-col;
+    background-color: transparent;
+    padding: 16px;
+    spacing: 10px;
 }
 
 inputbar {
     children: [prompt,entry];
-    background-color: @bg-col;
-    border-radius: 5px;
-    padding: 2px;
+    background-color: @input-col;
+    border-radius: 14px;
+    padding: 6px;
+    spacing: 10px;
 }
 
 prompt {
     background-color: @blue;
-    padding: 6px;
-    text-color: @bg-col;
-    border-radius: 3px;
-    margin: 20px 0px 0px 20px;
+    padding: 8px 14px;
+    text-color: #000000;
+    border-radius: 10px;
+    margin: 0px;
 }
 
 textbox-prompt-colon {
@@ -55,49 +59,56 @@ textbox-prompt-colon {
 }
 
 entry {
-    padding: 6px;
-    margin: 20px 0px 0px 10px;
+    padding: 8px 4px;
+    margin: 0px;
     text-color: @fg-col;
-    background-color: @bg-col;
-    placeholder:"Search";
+    background-color: transparent;
+    placeholder: "Search";
+    placeholder-color: @grey;
 }
 
 listview {
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
+    border: 0px;
+    padding: 4px 0px 0px;
+    margin: 0px;
     columns: 2;
-    background-color: @bg-col;
+    spacing: 4px;
+    background-color: transparent;
 }
 
 element {
-    padding: 5px;
-    background-color: @bg-col;
-    text-color: @fg-col  ;
+    padding: 8px 10px;
+    spacing: 10px;
+    border-radius: 12px;
+    background-color: transparent;
+    text-color: @fg-col;
 }
 
 element-icon {
     size: 25px;
+    vertical-align: 0.5;
 }
 
 element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+    background-color: @selected-col;
+    text-color: @fg-col2;
 }
 
 mode-switcher {
-    spacing: 0;
-  }
+    spacing: 6px;
+    background-color: transparent;
+}
 
 button {
     padding: 10px;
+    border-radius: 12px;
     background-color: @bg-col-light;
     text-color: @grey;
-    vertical-align: 0.5; 
+    vertical-align: 0.5;
     horizontal-align: 0.5;
 }
 
 button selected {
-  background-color: @bg-col;
-  text-color: @blue;
+    background-color: @selected-col;
+    text-color: @fg-col2;
 }

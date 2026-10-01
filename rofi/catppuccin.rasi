@@ -1,11 +1,13 @@
 * {
-    bg-col:  #000000;
-    bg-col-light: #111111;
-    border-col: #ffffff;
-    selected-col: #262626;
-    blue: #ffffff;
-    fg-col: #ffffff;
-    fg-col2: #ffffff;
-    grey: #9a9a9a;
+    /* Siyah-beyaz tema: yarı saydam cam hissi */
+    bg-col:        #000000a6;   /* ana pencere, %65 opak */
+    bg-col-light:  #ffffff0d;   /* hafif beyaz katman */
+    border-col:    #ffffff2e;   /* ince, yumuşak çerçeve */
+    selected-col:  #ffffffe6;   /* seçili satır: beyaz */
+    blue:          #ffffff;     /* prompt rengi (eski isim korundu) */
+    fg-col:        #f2f2f2;
+    fg-col2:       #000000;     /* seçili satırda siyah yazı */
+    grey:          #8c8c8c;
+    input-col:     #ffffff14;   /* arama kutusu zemini */
     width: 600;
 }
