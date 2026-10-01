@@ -25,13 +25,15 @@
   "clock": {
     "timezone": "Europe/Istanbul",
     "format": "{:%H:%M  ·  %d %b %a}",
-    "tooltip-format": "<tt>{calendar}</tt>",
+    "tooltip-format": "<span font_family='JetBrainsMono Nerd Font' size='x-large'>{calendar}</span>",
     "calendar": {
       "mode": "month",
       "on-scroll": 1,
       "format": {
-        "today": "<b><u>{}</u></b>",
-        "weekdays": "<span color='#8c8c8c'>{}</span>"
+        "months": "<span color='#ffffff'><b>{}</b></span>",
+        "weekdays": "<span color='#8c8c8c'>{}</span>",
+        "days": "<span color='#d9d9d9'>{}</span>",
+        "today": "<span color='#ffffff'><b><u>{}</u></b></span>"
       }
     },
     "actions": {
