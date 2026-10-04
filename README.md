@@ -21,8 +21,6 @@ A minimal, fast, and visually appealing **scrollable tiling** desktop experience
 
 ## 📸 Screenshots
 
-> You can add screenshots of your desktop here.
-
 <div align="center">
   <img src="Resimler/Screenshot.png" width="80%" alt="Desktop View">
 </div>
