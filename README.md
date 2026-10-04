@@ -6,9 +6,6 @@
 
 ![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
 ![Niri](https://img.shields.io/badge/Niri-WM-blueviolet?style=for-the-badge)
-![Wayland](https://img.shields.io/badge/Wayland-FFB800?style=for-the-badge&logo=wayland&logoColor=black)
-![Fish](https://img.shields.io/badge/Fish_Shell-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 A minimal, fast, and visually appealing **scrollable tiling** desktop experience.
 
@@ -27,7 +24,7 @@ A minimal, fast, and visually appealing **scrollable tiling** desktop experience
 > You can add screenshots of your desktop here.
 
 <div align="center">
-  <img src="assets/screenshot-1.png" width="80%" alt="Desktop View">
+  <img src="Resimler/Screenshot.png" width="80%" alt="Desktop View">
 </div>
 
 ---
