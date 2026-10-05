@@ -32,6 +32,7 @@ PACMAN_PACKAGES=(
   networkmanager
   libnotify
   ttf-jetbrains-mono-nerd
+  ttf-jetbrains-mono
   papirus-icon-theme
   steam
   gamemode
