@@ -36,11 +36,11 @@ PACMAN_PACKAGES=(
   papirus-icon-theme
   steam
   gamemode
+  firefox
 )
 
 AUR_PACKAGES=(
   nvibrant
-  zen-browser-bin
 )
 
 # Repodan ~/.config'e kopyalanmayacak klasörler
