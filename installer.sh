@@ -26,7 +26,7 @@ PACMAN_PACKAGES=(
   fish
   neovim
   rofi
-  thunar
+  dolphin
   udiskie
   udisks2
   networkmanager
